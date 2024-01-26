@@ -1,0 +1,11 @@
+<h1>Forecast</h1>
+
+<table>
+  <% @data.each do |data| %>
+  <tr>
+      <td><%= data["name"] %></td>
+      <td><%= data["temperature"] %></td>
+
+  </tr>
+  <%end%> 
+</table>
