@@ -4,10 +4,9 @@ require 'uri'
 class WeatherService
     def self.call(address)
 
-        return "Please enter a valid address in the form \“4600 Silver Hill Rd, Washington, DC 20233\”"if address.nil?
-
         #get longitude and latitude from the address
         latitude, longitude = GeocodeService.new(address).get_coordinates
+
         
         #get forecast object from weather api
         uri = URI("https://api.weather.gov/points/#{latitude},#{longitude}")

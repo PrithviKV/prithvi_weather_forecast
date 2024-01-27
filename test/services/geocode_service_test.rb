@@ -10,4 +10,14 @@ class GeocodeServiceTest < ActiveSupport::TestCase
         assert_in_delta -121.92259, coordinates[1], 0.1
         assert_in_delta 37.48664, coordinates[0], 0.1
     end
+
+    test "call with invalid address" do
+        address = "454 Bolinger Fremont, CA 94539"
+        geocode = GeocodeService.new(address)
+        assert_equal "", geocode.get_url
+        
+        coordinates = geocode.get_coordinates
+        assert_equal 0, coordinates[1]
+        assert_equal 0, coordinates[0]
+    end
 end
