@@ -1,11 +1,19 @@
 <h1>Forecast</h1>
 
-<table>
-  <% @data.each do |data| %>
-  <tr>
-      <td><%= data["name"] %></td>
-      <td><%= data["temperature"] %></td>
+<%= form_with(method: 'get', local: true) do %>
+  <%= label :address, "Enter address" %><br>
+  <%= text_field_tag(:address, @address) %><br>
+  <%= submit_tag("Submit") %>
+<% end %>
 
-  </tr>
-  <%end%> 
-</table>
+<% if @data %>
+  <table>
+    <% @data.each do |data| %>
+    <tr>
+        <td><%= data["name"] %></td>
+        <td><%= data["temperature"] %></td>
+
+    </tr>
+    <%end%> 
+  </table>
+<% end %>
