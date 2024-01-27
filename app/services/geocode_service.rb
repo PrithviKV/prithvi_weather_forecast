@@ -13,13 +13,14 @@ class GeocodeService
         street=arr[0].split.join('+')
         city=arr[1].strip
         state=arr[2].split[0].strip
-        url = "https://geocoding.geo.census.gov/geocoder/locations/address?street=#{street}&city=#{city}&state=#{state}&benchmark=2020&format=json"
+        zip = arr[2].split[1].strip
+        url = "https://geocoding.geo.census.gov/geocoder/locations/address?street=#{street}&city=#{city}&state=#{state}&zip=#{zip}&benchmark=2020&format=json"
 
         url
     end
 
     def get_coordinates
-        
+
         url = get_url
         uri = URI(url)
         res = Net::HTTP.get_response(uri)
