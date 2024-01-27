@@ -19,7 +19,8 @@ class GeocodeService
             state=arr[2].split[0].strip
             zip = arr[2].split[1].strip
             url = "https://geocoding.geo.census.gov/geocoder/locations/address?street=#{street}&city=#{city}&state=#{state}&zip=#{zip}&benchmark=2020&format=json"
-        rescue
+        rescue => e
+            return e.message
           
         end
 
