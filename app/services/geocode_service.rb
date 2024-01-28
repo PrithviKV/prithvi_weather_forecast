@@ -39,9 +39,11 @@ class GeocodeService
             uri = URI(url)
             res = Net::HTTP.get_response(uri)
             body = JSON.parse(res.body)
-
-            longitude=body["result"]["addressMatches"][0]["coordinates"]["x"].round(4)
-            latitude=body["result"]["addressMatches"][0]["coordinates"]["y"].round(4)
+            
+            if !body["result"]["addressMatches"].empty?
+                longitude=body["result"]["addressMatches"][0]["coordinates"]["x"].round(4)
+                latitude=body["result"]["addressMatches"][0]["coordinates"]["y"].round(4)
+            end
         rescue => e
             return e.message
         end

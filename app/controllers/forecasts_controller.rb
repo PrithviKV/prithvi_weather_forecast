@@ -20,11 +20,11 @@ class ForecastsController < ApplicationController
     end
 
     private
-
+    
+    #regex to check address is in the from 4241354 Street name, city name, state code zipcode"
     def is_correct_format?
 
-        return @address.match? /\A\d+\s+[a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+[\s]*[,][\s]*[a-zA-Z]+[\s]*[,][\s]*[A-Z][A-Z]\s+\d+[\s]*\Z/
+        return @address.match? /\A\d+\s+[a-zA-Z]+\s+[a-zA-Z]+[\s]*[a-zA-Z]*[\s]*[,][\s]*[a-zA-Z]+[\s]*[,][\s]*[A-Z][A-Z]\s+\d+[\s]*\Z/
 
     end
 end
-
