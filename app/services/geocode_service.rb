@@ -16,12 +16,11 @@ class GeocodeService
             arr=@address.split(/,/)
             street=arr[0].split.join('+')
             city=arr[1].strip
-            state=arr[2].split[0].strip
-            zip = arr[2].split[1].strip
+            state=arr[2].split[0]
+            zip = arr[2].split[1]
             url = "https://geocoding.geo.census.gov/geocoder/locations/address?street=#{street}&city=#{city}&state=#{state}&zip=#{zip}&benchmark=2020&format=json"
         rescue => e
             return e.message
-          
         end
 
         url
@@ -43,9 +42,10 @@ class GeocodeService
 
             longitude=body["result"]["addressMatches"][0]["coordinates"]["x"].round(4)
             latitude=body["result"]["addressMatches"][0]["coordinates"]["y"].round(4)
-        rescue
-
+        rescue => e
+            return e.message
         end
+
         [latitude, longitude]
     end
 end

@@ -3,7 +3,8 @@ class ForecastsController < ApplicationController
 
         @address = params[:address]
         
-        if @address
+        #check address is present and it is in the right format
+        if @address && is_correct_format?
             begin
 
                 @data = WeatherService.call(@address)
@@ -16,6 +17,14 @@ class ForecastsController < ApplicationController
         else
             flash.alert = "Please enter a valid address in the form \“4600 Silver Hill Rd, Washington, DC 20233\”"
         end
+    end
+
+    private
+
+    def is_correct_format?
+
+        return @address.match? /\A\d+\s+[a-zA-Z]+\s+[a-zA-Z]+\s+[a-zA-Z]+[\s]*[,][\s]*[a-zA-Z]+[\s]*[,][\s]*[A-Z][A-Z]\s+\d+[\s]*\Z/
+
     end
 end
 
