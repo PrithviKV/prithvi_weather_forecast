@@ -6,8 +6,20 @@ class ForecastsController < ApplicationController
         #check address is present and it is in the right format
         if @address && is_correct_format?
             begin
+                
+                @geocode = GeocodeService.new(@address)
 
-                @data = WeatherService.call(@address)
+                # zipcode as weather_cache_key
+                @weather_cache_key = @geocode.get_address_hash["zipcode"]
+
+                @weather_cache_exist = Rails.cache.exist?(@weather_cache_key)
+
+                @data = Rails.cache.fetch(@weather_cache_key, expires_in: 30.minutes) do
+
+                    #get longitude and latitude from the address
+                    latitude, longitude = @geocode.get_coordinates
+                    WeatherService.call(latitude, longitude)
+                end
 
             rescue => e
 
@@ -28,3 +40,4 @@ class ForecastsController < ApplicationController
 
     end
 end
+
