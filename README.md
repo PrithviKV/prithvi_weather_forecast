@@ -15,3 +15,5 @@ This seems to be called GeoCoding and the helpful NWS FAQ page points to a [GeoC
 
 This is a first attempt to try these options and see how it goes.
 
+Rails 7.0.8
+Ruby 3.2.0
