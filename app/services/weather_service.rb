@@ -4,9 +4,6 @@ require 'uri'
 class WeatherService
     def self.call(latitude, longitude)
 
-        # #get longitude and latitude from the address
-        # latitude, longitude = GeocodeService.new(address).get_coordinates
-
         #get forecast object from weather api
         uri = URI("https://api.weather.gov/points/#{latitude},#{longitude}")
 
@@ -25,3 +22,4 @@ class WeatherService
         
     end
 end
+

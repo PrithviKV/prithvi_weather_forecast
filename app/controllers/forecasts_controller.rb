@@ -18,6 +18,8 @@ class ForecastsController < ApplicationController
 
                     #get longitude and latitude from the address
                     latitude, longitude = @geocode.get_coordinates
+
+                    #get forecast data from Api
                     WeatherService.call(latitude, longitude)
                 end
 
