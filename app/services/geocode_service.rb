@@ -1,3 +1,6 @@
+require 'net/http'
+require 'uri'
+
 class GeocodeService
 
     attr_accessor :address
