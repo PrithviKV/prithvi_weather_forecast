@@ -16,7 +16,11 @@
         <td><%= data["temperature"] %></td>
 
     </tr>
-    <%end%> 
+    <%end%>
   </table>
+<% end %>
+
+<% if @weather_cache_exist %>
+  <ul> *** Please note that this information is cached for 30 mins ***
 <% end %>
 

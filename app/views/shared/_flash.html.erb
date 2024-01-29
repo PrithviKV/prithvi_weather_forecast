@@ -1,5 +1,12 @@
 <% flash.each do |type, message| %>
-    <div class="flash flash-<%= type %>">
+    <div class="alert alert-primary" role="alert"
+    style = "overflow-wrap: break-word;
+    margin: 0.2em 0;
+    line-height: 1.1em;
+    font-size: 2em;
+    color: #F0F0F0;
+    background: #C00;
+    padding: 0.5em 1.5em;">
       <%= message %>
     </div>
   <% end %>
