@@ -1,6 +1,8 @@
 require 'test_helper'
 
 class AddressServiceTest < ActiveSupport::TestCase
+
+    # Check valid address format
     test "call with valid address" do
         address = "454 Bolinger Cmn, Fremont, CA 94539"
         address_service = AddressService.new(address)
@@ -15,11 +17,11 @@ class AddressServiceTest < ActiveSupport::TestCase
         assert_equal true, address_service.is_correct_format?
     end
 
+    #check invalid address format
     test "call with invalid address" do
         address = "Bolinger Cmn, Fremont, CA 94539"
         address_service = AddressService.new(address)
         
         assert_equal false, address_service.is_correct_format?
     end
-
 end
