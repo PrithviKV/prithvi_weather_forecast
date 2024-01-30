@@ -10,20 +10,22 @@
 
 <% if @data %>
   <table>
-    <tr>
-      <td>Time ⌚️</td>
-      <td>Temperature (F) 🌡️</td>
-      <td>Wind (mph) 🍃</td>
-      <td>Rain (%) ☔️</td>
-    </tr>
-    <% @data.each do |data| %>
-    <tr>
-        <td><%= data["name"] %></td>
-        <td><%= data["temperature"] %></td>
-        <td><%= data["windSpeed"] %></td>
-        <td><%= data["probabilityOfPrecipitation"]["value"] %></td>
-    </tr>
-    <%end%>
+    <tbody style = "border-color: black; border-width: 2px;">
+      <tr>
+        <td>Time ⌚️</td>
+        <td>Temperature (F) 🌡️</td>
+        <td>Wind (mph) 🍃</td>
+        <td>Rain (%) ☔️</td>
+      </tr>
+      <% @data.each do |data| %>
+      <tr>
+          <td><%= data["name"] %></td>
+          <td><%= data["temperature"] %></td>
+          <td><%= data["windSpeed"] %></td>
+          <td><%= data["probabilityOfPrecipitation"]["value"] %></td>
+      </tr>
+      <%end%>
+    </tbody>
   </table>
 <% end %>
 

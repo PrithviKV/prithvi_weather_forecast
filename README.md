@@ -22,3 +22,6 @@ Once this was figured out it was pretty simple to build the app.
 The only complication was figuring out that the X and Y values in the Geocode response was actually (long, lat) and not (lat, long).
 
 This app is build with Rails 7.0.8 and Ruby 3.2.0
+
+![alt text](/public/Screenshot%20from%202024-01-30%2000-14-24.png)
+
