@@ -1,6 +1,11 @@
 # Prithvi's Weather Forecast
 
-A web application to retrieve weather forecast information for a given address.
+A Rails web application to retrieve weather forecast information for a given postal address.
+
+Provide a US postal address in a valid USPS format and you get the weather forecast ( temperature, wind and rain) for the next few hours.
+If addresses from the same zipcode are queried within 30 minutes, we use the Rails cache to retrieve the forecast without hitting the REST APIs.
+
+# Details
 
 After Googling around a bit on how to retrieve weather info, I find two options:
 
@@ -13,7 +18,7 @@ However, the NWS API takes a (latitude, longitude) input, so we need a way to co
 
 This seems to be called GeoCoding and the helpful NWS FAQ page points to a [GeoCoding REST API](https://geocoding.geo.census.gov/geocoder/Geocoding_Services_API.html) maintained by the Census Bureau.
 
-This is a first attempt to try these options and see how it goes.
+Once this was figured out it was pretty simple to build the app.
+The only complication was figuring out that the X and Y values in the Geocode response was actually (long, lat) and not (lat, long).
 
-Rails 7.0.8
-Ruby 3.2.0
+This app is build with Rails 7.0.8 and Ruby 3.2.0
