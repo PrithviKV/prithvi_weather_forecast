@@ -7,7 +7,9 @@ If addresses from the same zipcode are queried within 30 minutes, we use the Rai
 
 This app is build with Rails 7.0.8 and Ruby 3.2.0
 
-Sample address you can use to test this app: 454 Bolinger Cmn, Fremont, CA 94539
+Sample address you can use to test this app:
+454 Bolinger Cmn, Fremont, CA 94539
+4600 Silver Hill Rd, Washington, DC 20233
 
 ![alt text](/public/Screenshot%20from%202024-01-30%2000-14-24.png)
 
