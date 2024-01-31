@@ -19,7 +19,7 @@ class AddressService
         
         arr = @address.split(/,/)
         street = arr[0].split.join('+')
-        city = arr[1].strip
+        city = arr[1].split.join('+')
         state = arr[2].split[0]
         zip = arr[2].split[1]
 
@@ -46,7 +46,7 @@ class AddressService
     # Check for valid address format using regex: "4241354 Street name, city name, state code zipcode"
     def is_correct_format?
 
-        return @address.match? /\A[0-9]*\s+[a-zA-Z]+\s+[a-zA-Z]+[\s]*[a-zA-Z]*[\s]*[,][\s]*[a-zA-Z]+[\s]*[,][\s]*[A-Z][A-Z]\s+\d+[\s]*\Z/
+        return @address.match? /\A[0-9]*\s+[a-zA-Z]+\s+[a-zA-Z]+[\s]*[a-zA-Z]*[\s]*[,][\s]*[a-zA-Z]+[\s]*[a-zA-Z]*[\s]*[,][\s]*[A-Z][A-Z]\s+\d+[\s]*\Z/
 
     end
 end
